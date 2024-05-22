@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>DevStagram - @yield('titulo')</title>
 
         
     </head>
 
     <body>
     <nav>
-        <a href="/nosotros">nosotros</a>
-        <a href="/"></a>
+        <a href="/">Principal</a>
+        <a href="/nosotros">Nosotros</a>
         <a href="/"></a>
     </nav>
 
