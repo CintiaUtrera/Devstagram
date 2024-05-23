@@ -3,24 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        @vite('resources/css/app.css')
         <title>DevStagram - @yield('titulo')</title>
 
         
     </head>
 
     <body>
-    <nav>
-        <a href="/">Principal</a>
-        <a href="/nosotros">Nosotros</a>
-        <a href="/"></a>
-    </nav>
-
-    <h1>@yield('titulo')</h1> <!-- directiva yield = resgistra esto como un contenedor -->
-
-    <hr>
-
-    @yield('contenido')
+        <h1 class="text-4xl">@yield('titulo')</h1>
+        <hr>
+        @yield('contenido')
     </body>
 
 </html>
