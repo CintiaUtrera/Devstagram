@@ -8,9 +8,15 @@
         <title>DevStagram - @yield('titulo')</title>
     </head>
 
-    <body>
+    <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
-            <h1 class="text-3xl font-black"></h1>
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-3xl font-black">DevStagram</h1>
+                <nav class="flex gap-2 items-center">
+                    <a class="font-bold uppercase text-gray-600" href="">Login</a>
+                    <a class="font-bold uppercase text-gray-600" href="">Crear Cuenta</a>
+                </nav>
+            </div>
         </header>
     </body>
 
