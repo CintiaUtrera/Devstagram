@@ -6,12 +6,12 @@
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
         <title>DevStagram - @yield('titulo')</title>
-
-        
     </head>
 
     <body>
-        
+        <header class="p-5 border-b bg-white shadow">
+            <h1 class="text-3xl font-black"></h1>
+        </header>
     </body>
 
 </html>
