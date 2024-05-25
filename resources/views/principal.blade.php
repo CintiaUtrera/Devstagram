@@ -5,5 +5,5 @@
 @endsection 
 
 @section('contenido')
-    Contenido de esta página..........
+    Contenido de esta página
 @endsection
