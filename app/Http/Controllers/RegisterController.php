@@ -12,8 +12,8 @@ class RegisterController extends Controller
     return view('auth.register');
     }
     
-    public function store() 
+    public function store(Request $request) 
     {
-        dd('Post...');
+        dd($request->get('name'));
     }
 }
