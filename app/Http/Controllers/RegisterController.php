@@ -18,7 +18,7 @@ class RegisterController extends Controller
 
         //Validacion
         $this->validate($request, [
-            'name' => 'required|min:5',
+            'name' => 'required|max:30',
         ]);
     }
 }
