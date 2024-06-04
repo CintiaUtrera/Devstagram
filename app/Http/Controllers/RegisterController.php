@@ -19,6 +19,9 @@ class RegisterController extends Controller
     {
         //dd($request->get('name'));
 
+        //Modificar el Request
+        $request->request->add(['username' => Str::slug($request->username)]);
+
         //Validacion
         $this->validate($request, [
             'name' => 'required|max:30',
@@ -27,11 +30,15 @@ class RegisterController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
+        //Almacena
         User::create([
             'name' => $request->name,
-            'username' => Str::lower($request->username),
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+
+        //Redireccionar
+        
     }
 }
