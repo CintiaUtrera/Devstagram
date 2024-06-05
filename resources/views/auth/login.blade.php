@@ -10,7 +10,7 @@
             <img src="{{ asset('img/login.jpg')}}" alt="imagen login">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form novalidate>
+            <form method="POST" action="{{route('login')}}" novalidate>
                 @csrf <!-- CSRF es una directiva que registra un campo oculto, un input -->
 
                 <div class="mb-5">
