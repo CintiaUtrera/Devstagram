@@ -4,26 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Facades\Image;
 
 class ImagenController extends Controller
 {
     //
     public function store(Request $request)
     {
-        $manager = new ImageManager(new Driver());
+        
 
         $imagen = $request->file('file');
 
         //generar un id unico para las imagenes
         $nombreImagen = Str::uuid() . "." . $imagen->extension();
 
-        //guardar la imagen al servidor
-        $imagenServidor = $manager->read($imagen);
-
+        $imagenServidor = Image::make($imagen);
         //agregamos efecto a la imagen con intervention
-        $imagenServidor->scale(1000, 1000);
+        $imagenServidor->fit(1000, 1000);
         // la unidad de mide en PX 1= 1pixiel
 
         //agregamos la imagen a la  carpeta en public donde se guardaran las imagenes
