@@ -41,6 +41,13 @@
                     @enderror
                 </div>
 
+                <div class="mb-5">
+                    <input name="imagen" type="hidden" />
+                    @error('imagen')
+                        <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <input type="submit" value="Publicar" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"  />
 
             </form>
