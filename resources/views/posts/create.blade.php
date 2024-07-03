@@ -11,10 +11,9 @@
 @section('contenido')
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            <form action="{{route('imagenes.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex
-            flex-col justify-center items-center">
+            <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" novalidate>
             @csrf
-            </form>
+            
         </div>
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
             <form action="{{ route('register') }}" method="POST">
@@ -35,9 +34,9 @@
                         Descripción
                     </label>
                     <textarea id="descripcion" name="descripcion" class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
-                            {{old ('titulo')}}
+                            {{old ('descripcion')}}
                     </textarea>
-                    @error('titulo')
+                    @error('descripcion')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                     @enderror
                 </div>
