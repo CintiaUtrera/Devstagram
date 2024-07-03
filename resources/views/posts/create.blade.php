@@ -11,9 +11,9 @@
 @section('contenido')
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" novalidate>
+            <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" novalidate class="dropzone border-dashed border-2 w-full h-96 rounded flex
+            flex-col justify-center items-center">
             @csrf
-            
         </div>
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
             <form action="{{ route('register') }}" method="POST">
@@ -34,19 +34,19 @@
                         Descripción
                     </label>
                     <textarea id="descripcion" name="descripcion" class="border p-3 w-full rounded-lg @error('titulo') border-red-500 @enderror">
-                            {{old ('descripcion')}}
+                        {{old ('descripcion')}}
                     </textarea>
                     @error('descripcion')
-                        <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                     @enderror
-                </div>
+                    </div>
 
-                <div class="mb-5">
-                    <input name="imagen" type="hidden" />
+                    <div class="mb-5">
+                    <input name="imagen" type="hidden" value="{{old('imagen')}}" />
                     @error('imagen')
-                        <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                     @enderror
-                </div>
+                    </div>
 
                 <input type="submit" value="Publicar" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"  />
 

@@ -24,3 +24,5 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');
+
+
