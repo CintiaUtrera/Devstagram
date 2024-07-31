@@ -8,14 +8,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    
+
 
     public function index(User $user)
     {
-
         $posts = Post::where('user_id', $user->id)->paginate(20);
-
-
 
         return view('dashboard', [
             'user' => $user,
@@ -66,8 +63,9 @@ class PostController extends Controller
     public function show(User $user, Post $post)
     {
         return view('posts.show', [
-            'post' => $post,
-            'user' => $user
+            'user' => $user,
+            'post' => $post
+            
             
 
         ]);
