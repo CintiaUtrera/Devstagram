@@ -65,9 +65,11 @@ class PostController extends Controller
         return view('posts.show', [
             'user' => $user,
             'post' => $post
-            
-            
-
         ]);
+    }
+
+    public function destroy(Post $post)
+    {
+        
     }
 }
