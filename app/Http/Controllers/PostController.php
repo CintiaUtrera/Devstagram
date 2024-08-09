@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\File\File;
 
 class PostController extends Controller
 {
@@ -34,10 +35,10 @@ class PostController extends Controller
         ]);
 
         //Post::create([
-            //'titulo' => $request->titulo,
-            //'descripcion' => $request->descripcion,
-            //'imagen' => $request->imagen,
-            //'user_id' => auth()->user()->id
+        //'titulo' => $request->titulo,
+        //'descripcion' => $request->descripcion,
+        //'imagen' => $request->imagen,
+        //'user_id' => auth()->user()->id
         //]);
 
         //Otra forma de crear registros
@@ -73,7 +74,13 @@ class PostController extends Controller
         $this->authorize('delete', $post);
         $post->delete();
 
-        return redirect()->route('posts.index', auth()->user()->username);
+        //eliminar la imagen
+        $imagen_path = public_path('uploads/' . $post->imagen);
+        if(File::unlink($imagen_path)){
+            unlink($imagen_path);
 
+        }
+
+            return redirect()->route('posts.index', auth()->user()->username);
     }
 }
