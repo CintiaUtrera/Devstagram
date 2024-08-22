@@ -6,6 +6,7 @@ use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\LikeController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
 
 class Post extends Model
 {
@@ -25,11 +26,16 @@ class Post extends Model
     
     public function comentarios()
     {
-        return $this->hasMany(Comentario::class);
+        return $this->hasMany(ComentarioController::class);
     }
 
     public function likes()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(LikeController::class);
+    }
+
+    public function checkLike(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);
     }
 }
