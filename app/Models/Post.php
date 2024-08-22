@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Http\Controllers\ComentarioController;
-use App\Http\Controllers\LikeController;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
@@ -26,12 +25,12 @@ class Post extends Model
     
     public function comentarios()
     {
-        return $this->hasMany(ComentarioController::class);
+        return $this->hasMany(Comentario::class);
     }
 
     public function likes()
     {
-        return $this->hasMany(LikeController::class);
+        return $this->hasMany(Like::class);
     }
 
     public function checkLike(User $user)
